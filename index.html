@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deus Training · אתר החפיפה של צוות ה-AI</title>
+<meta name="description" content="מסלול חפיפה מסודר לצוות ה-AI: שלבי ליבה, מסלולי העמקה, שיעורים ותרגילים בתוך האתר.">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #0f1214; color: #e4e7e7;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans Hebrew", "Noto Sans", Arial, sans-serif;
+  font-size: 15px; line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 22px; border-bottom: 1px solid #20262b;
+  position: sticky; top: 0; background: rgba(15,18,20,.92); backdrop-filter: blur(8px); z-index: 10;
+}
+.brand { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.brand img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; border: 1px solid #2c353b; }
+.brand span { font-size: 14px; font-weight: 600; color: #dfe4e4; }
+.navlinks { display: flex; gap: 18px; }
+.navlinks a { font-size: 13px; color: #8d979c; cursor: pointer; }
+.navlinks a:hover { color: #cfe3dc; }
+.hero { padding: 64px 24px 40px; max-width: 620px; margin: 0 auto; }
+.hero .kicker { font-size: 13px; color: #7fb3a3; margin-bottom: 14px; }
+.hero h1 { font-size: 34px; font-weight: 600; line-height: 1.3; color: #f0f3f2; margin-bottom: 16px; }
+.hero p { font-size: 16px; color: #a7b1b5; line-height: 1.8; max-width: 46ch; margin-bottom: 26px; }
+.cta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.cta .primary {
+  background: #7fb3a3; color: #0c1210; font-size: 14.5px; font-weight: 600;
+  padding: 11px 22px; border-radius: 8px; cursor: pointer; border: none;
+}
+.cta .primary:hover { background: #93c3b4; }
+.cta .secondary { font-size: 14px; color: #8d979c; border-bottom: 1px solid #39424a; padding-bottom: 1px; cursor: pointer; }
+.cta .secondary:hover { color: #cfe3dc; }
+.heroline { margin-top: 34px; font-size: 13px; color: #6d777c; }
+.progress { max-width: 620px; margin: 0 auto 8px; padding: 0 24px; }
+.progress .in { display: flex; align-items: center; gap: 14px; border-top: 1px solid #20262b; padding: 18px 0; }
+.progress .lbl { font-size: 13.5px; color: #8d979c; white-space: nowrap; }
+.progress .bar { flex: 1; height: 4px; background: #1e2429; border-radius: 99px; overflow: hidden; }
+.progress .fill { height: 100%; background: #7fb3a3; border-radius: 99px; transition: width .3s; }
+.progress .num { font-size: 13px; color: #6d777c; white-space: nowrap; }
+.how { max-width: 620px; margin: 0 auto; padding: 26px 24px 8px; }
+.how h2 { font-size: 17px; font-weight: 600; color: #dfe4e4; margin-bottom: 12px; }
+.how ul { list-style: none; }
+.how li { font-size: 14.5px; color: #a7b1b5; padding: 7px 0; display: flex; gap: 10px; }
+.how li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #7fb3a3; margin-top: 9px; flex-shrink: 0; }
+.filters { max-width: 620px; margin: 0 auto; padding: 30px 24px 4px; display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
+.fgroup { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.flabel { font-size: 12.5px; color: #6d777c; }
+.chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.chip { background: none; color: #8d979c; border: none; border-radius: 6px; padding: 6px 10px; font-size: 13px; cursor: pointer; font-family: inherit; }
+.chip:hover { color: #dfe4e4; background: #171c20; }
+.chip.on { color: #9ecbbb; background: rgba(127,179,163,.10); }
+.stage { max-width: 620px; margin: 0 auto; padding: 34px 24px 0; }
+.shead { margin-bottom: 6px; }
+.shead h3 { font-size: 19px; font-weight: 600; color: #ecefef; }
+.shead h3 .n { color: #7fb3a3; margin-inline-end: 10px; font-size: 15px; }
+.stage.adv .shead h3 .n { color: #c2a273; }
+.shead p { margin-top: 5px; font-size: 13px; color: #6d777c; }
+.slist { margin-top: 14px; border-top: 1px solid #20262b; }
+.mod {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 14px;
+  padding: 13px 4px; border-bottom: 1px solid #1b2125; cursor: pointer;
+}
+.mod:hover { background: #141a1d; }
+.mod-main { min-width: 0; }
+.mod-name { font-size: 15px; color: #dde2e2; font-weight: 500; line-height: 1.6; }
+.mod-name .star { color: #c2a273; font-size: 12px; margin-inline-start: 6px; }
+.mod-meta { margin-top: 3px; font-size: 12.5px; color: #6d777c; }
+.mod-lv { font-size: 12.5px; color: #8d979c; white-space: nowrap; display: flex; align-items: center; gap: 6px; }
+.mod-lv i { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.dot-basic { background: #7fb3a3; } .dot-mid { background: #c2a273; } .dot-adv { background: #c08a8a; }
+.mod-lv .done-mark { color: #7fb3a3; margin-inline-start: 4px; }
+.footer { max-width: 620px; margin: 0 auto; padding: 36px 24px 40px; font-size: 12.5px; color: #5f696e; line-height: 1.8; }
+.footer a { color: #7fb3a3; border-bottom: 1px solid #2c3a36; }
+.page { max-width: 620px; margin: 0 auto; padding: 20px 24px 40px; }
+.back { font-size: 13.5px; color: #7fb3a3; cursor: pointer; }
+.back:hover { color: #9ecbbb; }
+.eyebrow { margin-top: 26px; font-size: 13px; color: #7fb3a3; }
+.ptitle { margin-top: 10px; font-size: 27px; font-weight: 600; color: #f0f3f2; line-height: 1.4; }
+.pmeta { margin-top: 12px; font-size: 13px; color: #6d777c; }
+.sec { margin-top: 34px; }
+.sec h4 { font-size: 16px; font-weight: 600; color: #dfe4e4; margin-bottom: 12px; }
+.sec p.text { font-size: 15px; color: #b3bdc0; line-height: 1.9; }
+.lesson p { margin-bottom: 14px; font-size: 15px; color: #b3bdc0; line-height: 1.95; }
+.lesson p:last-child { margin-bottom: 0; }
+.lesson b { color: #d7e5df; font-weight: 600; }
+.points { list-style: none; }
+.points li { font-size: 14.5px; color: #a7b1b5; padding: 7px 0; display: flex; gap: 10px; line-height: 1.8; }
+.points li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #7fb3a3; margin-top: 11px; flex-shrink: 0; }
+.points li b { color: #d7e5df; font-weight: 600; }
+.quiz { border-inline-start: 2px solid #7fb3a3; padding-inline-start: 14px; font-size: 14.5px; color: #a7b1b5; line-height: 1.9; }
+.quiz .q-label { color: #7fb3a3; font-size: 12.5px; font-weight: 600; margin-bottom: 4px; }
+.credit { font-size: 12.5px; color: #5f696e; line-height: 1.8; margin-top: 26px; }
+.done-btn {
+  width: 100%; margin-top: 32px; padding: 13px; border-radius: 8px; border: none;
+  background: #7fb3a3; color: #0c1210; font-size: 14.5px; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+.done-btn:hover { background: #93c3b4; }
+.done-btn.is-done { background: #171c20; color: #9ecbbb; border: 1px solid #33403b; }
+.done-note { text-align: center; font-size: 12px; color: #5f696e; margin-top: 10px; }
+@media (min-width: 768px) {
+  .hero { padding-top: 84px; }
+  .hero h1 { font-size: 40px; }
+  .stage, .how, .filters, .progress, .footer, .page { max-width: 680px; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand" onclick="go('')">
+    <img src="deus-logo.jpg" alt="סמל הצוות">
+    <span>Deus Training</span>
+  </div>
+  <div class="navlinks">
+    <a onclick="go('','stages')">המסלול</a>
+    <a onclick="go('','how')">איך זה עובד</a>
+  </div>
+</nav>
+<main id="app"></main>
+<script>
+const TRACKS = [
+  { id:'core1', n:'שלב 1', title:'יסודות LLM', note:'חובה לכולם · כ-10 שעות · 3 מודולים' },
+  { id:'core2', n:'שלב 2', title:'כלים ופיתוח אג\u2019נטי', note:'חובה לכולם · כ-13 שעות · 5 מודולים' },
+  { id:'core3', n:'שלב 3', title:'בונים יישום', note:'חובה לכולם · כ-15 שעות · 4 מודולים' },
+  { id:'advA', n:'העמקה א', title:'אינפרנס, חומרה ו-MLOps', note:'לפי תפקיד · כ-9.5 שעות · 5 מודולים', adv:true },
+  { id:'advB', n:'העמקה ב', title:'ML ואימון', note:'לפי תפקיד · כ-16 שעות · 3 מודולים', adv:true },
+];
+const LEVEL = { basic:{label:'בסיסי',dot:'dot-basic'}, mid:{label:'בינוני',dot:'dot-mid'}, adv:{label:'מתקדם',dot:'dot-adv'} };
+const MODULES = [
+{ id:'m0', track:'core1', name:'עבודה יומיומית עם LLM: שימוש, מגבלות ופרומפטים', kind:'קריאה ותרגול', hours:'~2 שעות', level:'basic', star:true,
+  about:'איך לעבוד עם מודל שפה ביום־יום בלי ליפול למלכודות: מה הוא יודע, מה הוא ממציא, ואיך כותבים בקשה שמחזירה תשובה שימושית.',
+  points:['<b>מודל שפה הוא מנוע השלמה, לא מסד ידע.</b> הוא ישיב בשטף גם כשהוא טועה, ולכן כל עובדה קריטית מאומתת מול מקור.','<b>שאלה כללית מול משימה עם הקשר.</b> אותה בקשה עם הקשר, דוגמה ופורמט פלט מחזירה תוצאה אחרת לגמרי.','<b>שיחה אחת ארוכה מול שיחות נפרדות.</b> הקשר ישן מזהם; פותחים שיחה חדשה כשהנושא משתנה.','<b>מתי לא להשתמש במודל.</b> חישוב מדויק, נתון עדכני, או החלטה עם אחריות - לא משהו שמבקשים ממנו "בלי לבדוק".'],
+  exercise:'כתבו שלוש גרסאות לאותה בקשה מקצועית מהעבודה שלכם - כללית, עם הקשר, ועם דוגמה לפלט רצוי - והשוו את התשובות. מה השתנה?',
+  credit:'נכתב במקור עבור האתר.' },
+{ id:'m1', track:'core1', name:'מבוא ל-LLMs ומנגנון Attention', kind:'צפייה וקריאה', hours:'~6 שעות', level:'basic',
+  about:'בונים מודל מנטלי של מודלי שפה ומנגנון ה-attention, ומכירים את תשתית הפיתוח של הצוות. בסוף המודול תוכלו להסביר לעצמכם למה הפרויקטים שלנו בנויים כמו שהם.',
+  lesson:['כשמודל שפה קורא משפט, הוא לא מעבד אותו מילה אחר מילה כמו בן אדם. כל מילה הופכת לווקטור, ומנגנון ה-<b>attention</b> מחשב לכל מילה כמה כל מילה אחרת רלוונטית אליה. התוצאה היא מפת משקלים שמחברת בין "החתול" ל"ישן" גם כשיש חמש מילים ביניהם.','בזכות זה המודל עוקב אחרי הקשר ארוך, אבל זה גם מה שהופך את הזיכרון שלו, ה-context window, למשאב יקר. כל טוקן עולה חישוב, ולכן אנחנו מעצבים את הסוכנים שלנו בדיוק ככה.'],
+  points:['<b>טוקנים, לא מילים.</b> המודל רואה חתיכות טקסט; זה מסביר התנהגויות מוזרות סביב איות וספירה.','<b>pre-training מול inference.</b> האימון קרה פעם אחת; השיחה שלכם לא מאמנת את המודל.','<b>attention כמפת משקלים.</b> שאילתה, מפתח וערך - ואיך מזה יוצא הבנת הקשר.','<b>ה-context window כתקציב.</b> מה נכנס, מה נדחס, ולמה זה קובע ארכיטקטורה.'],
+  exercise:'קחו משפט מפרויקט אמיתי של הצוות, פרקו אותו לטוקנים, וסמנו אילו זוגות מילים הייתם מצפים שיקבלו משקל attention גבוה. למה?',
+  credit:'מבוסס על: פלייליסט היסודות של זיו בכר · LLM Fundamentals (aihero.dev) · The Illustrated Transformer (Jay Alammar).' },
+{ id:'m3', track:'core1', name:'תרגיל מעשי: צ\u2019אטבוט ראשון מול API', kind:'hands-on', hours:'~2 שעות', level:'basic', star:true,
+  about:'התרגיל הראשון בקוד: שולחים הודעה למודל דרך API ומקבלים תשובה, בלי ממשק מסביב. מכאן כל השאר נבנה.',
+  points:['<b>המודל הוא שירות.</b> בקשה, תשובה, טוקנים - ומפתח API ששומרים בסוד.','<b>תפקידי הודעות.</b> ההבדל בין system, user ו-assistant, ומה כל אחד עושה לתשובה.','<b>היסטוריה בזיכרון.</b> המודל חסר זכרון; את השיחה מחזיקים אצלכם ושולחים מחדש.','<b>עלות.</b> כמה עולה כל קריאה, ואיך עוקבים אחרי usage.'],
+  exercise:'סקריפט Python קצר שמנהל שיחה של חמש הודעות עם המודל ושומר את ההיסטוריה לקובץ. בלי ספריות מעבר ל-API הרשמי.',
+  credit:'נכתב במקור עבור האתר.' },
+{ id:'m4', track:'core2', name:'Claude Code ו-agentic coding', kind:'hands-on', hours:'~3 שעות', level:'basic',
+  about:'עבודה עם סוכן קוד בתוך הטרמינל: נותנים משימה אמיתית, והסוכן קורא קוד, משנה קבצים ומריץ בדיקות.',
+  points:['<b>גבולות הרשאה.</b> מה הסוכן רשאי לעשות לבד, ומה תמיד דורש אישור שלכם.','<b>קריאת תוכנית העבודה.</b> לפני שמאשרים שינויים - קוראים מה הוא מתכוון לעשות.','<b>לתקן כיוון, לא קוד.</b> כשהסוכן סוטה, עוצרים ומדייקים את ההנחיה במקום לתקן בדיעבד.','<b>הרגל מקצועי.</b> commit נקי לפני כל הרצה, כדי שאפשר לחזור אחורה.'],
+  exercise:'בחרו feature קטן בפרויקט צד, ותנו לסוכן להשלים אותו מקצה לקצה, כולל בדיקות. תעדו איפה נאלצתם להתערב.',
+  credit:'מבוסס על: claude-howto · Claude Code 101 (Anthropic).' },
+{ id:'m5', track:'core2', name:'Prompt ו-context engineering', kind:'קריאה ותרגול', hours:'~2 שעות', level:'basic', star:true,
+  about:'ההבדל בין "לנסח טוב" לבין לתכנן את כל ההקשר שהמודל רואה - ולמה השני חשוב יותר.',
+  points:['<b>מבנה פרומפט.</b> תפקיד, משימה, אילוצים, דוגמאות - בסדר הזה.','<b>הקשר הוא משאב.</b> מה שולחים, מה מסכמים, ומה בכוונה משאירים בחוץ.','<b>שגיאות נפוצות.</b> הוראות סותרות, דוגמאות רועשות, חלון עמוס מדי.','<b>מדידה.</b> משנים דבר אחד בכל פעם ובודקים את ההשפעה, לא מנחשים.'],
+  exercise:'קחו פרומפט קיים מהעבודה ושפרו אותו בשלושה סבבים מתועדים: מה שיניתם, ומה קרה לתשובה.',
+  credit:'מבוסס על: Prompt engineering (Anthropic Docs).' },
+{ id:'m6', track:'core2', name:'תצורת skills, hooks ו-claude.md', kind:'hands-on', hours:'~2 שעות', level:'mid',
+  about:'הופכים את הסוכן מכלי גנרי לכלי של הצוות: קובץ claude.md בפרויקט, skills לתהליכים חוזרים, ו-hooks לבדיקות אוטומטיות.',
+  points:['<b>claude.md.</b> קונבנציות, פקודות הרצה, גבולות - כל מה שמישהו חדש היה צריך לדעת.','<b>skill טוב.</b> תהליך קטן וברור עם טריגר מוגדר, לא תיעוד של כל העולם.','<b>hooks.</b> lint ובדיקות אחרי כל שינוי, בלי לבקש מהסוכן בנימוס.','<b>מה לא שמים.</b> סודות, נתוני לקוח, החלטות ארכיטקטורה חד־פעמיות.'],
+  exercise:'כתבו claude.md לפרויקט אחד, ו-skill אחד לתהליך שחוזר על עצמו אצלכם בצוות.',
+  credit:'מבוסס על: claude-howto.' },
+{ id:'m7', track:'core2', name:'תבניות לסוכנים אפקטיביים', kind:'קריאה', hours:'~2 שעות', level:'mid', star:true,
+  about:'הסיכום הכי מצוטט בתחום: מתי בכלל צריך סוכן, ואילו תבניות עובדות בפרודקשן.',
+  points:['<b>הכלל הראשון.</b> הפתרון הפשוט שעובד - לפעמים זה בכלל לא סוכן.','<b>workflow מול agent.</b> שליטה שלכם במסלול מול שליטה של המודל בצעדים.','<b>התבניות.</b> prompt chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer.','<b>שקיפות.</b> מציגים למשתמש את צעדי הסוכן ואת הכלים שבהם השתמש.'],
+  exercise:'קחו תהליך אמיתי מהצוות וסמנו עליו: האם הוא צריך סוכן, workflow, או סתם סקריפט? נמקו במשפט.',
+  credit:'מבוסס על: Building Effective Agents (Anthropic).' },
+{ id:'m8', track:'core2', name:'Harness engineering', kind:'קריאה ותרגול', hours:'~4 שעות', level:'mid',
+  about:'ה-harness הוא כל מה שעוטף את המודל: ההקשר, הכלים, הבדיקות והלולאה. זה ההבדל בין דמו לבין מערכת.',
+  points:['<b>אותו מודל, harness שונה.</b> התוצאות שונות - ההשקעה הולכת לעטיפה, לא רק לבחירת מודל.','<b>עיצוב כלים.</b> שמות ברורים, שגיאות קריאות, פלט קומפקטי שהמודל יכול לעכל.','<b>ניהול הקשר.</b> סיכום, דחיסה וחיתוך לאורך שיחה ארוכה.','<b>לולאת סוכן.</b> תכנון, פעולה, תצפית, תיקון - ועצירה מוגדרת.'],
+  exercise:'קחו סוכן פשוט ושפרו לו שני כלים ואת הודעות השגיאה. מדדו שיפור על אותה משימה קבועה לפני ואחרי.',
+  credit:'מבוסס על: Harness Engineering (סדרת ההרצאות).' },
+{ id:'m9', track:'core3', name:'RAG וארכיטקטורות (hybrid search, CAG)', kind:'קריאה ותרגול', hours:'~5 שעות', level:'mid',
+  about:'מחברים את המודל לידע שלכם בלי לאמן אותו מחדש: embeddings, חיפוש, והארכיטקטורות שמסביב.',
+  points:['<b>pipeline בסיסי.</b> chunking, embeddings, vector DB, retrieval, מענה.','<b>חיפוש היברידי.</b> BM25 לצד וקטורים, ומתי כל אחד מנצח.','<b>CAG מול RAG.</b> לפעמים הכי נכון פשוט להכניס הכל ל-context.','<b>כשלים נפוצים.</b> chunks גדולים מדי, metadata חסר, ועבודה בלי הערכה.'],
+  exercise:'בונים RAG קטן על עשרה מסמכים פנימיים ובודקים אותו על חמש שאלות עם תשובה ידועה מראש.',
+  credit:'מבוסס על: חומרי ה-RAG של הצוות והמסמך המקורי.' },
+{ id:'m10', track:'core3', name:'הערכת מודלים: יסודות ובנצ\u2019מרקים', kind:'קריאה', hours:'~2 שעות', level:'mid',
+  about:'בלי evals אין שיפור, רק רשמים. איך מודדים איכות של מערכת LLM בצורה שאפשר להשוות לאורך זמן.',
+  points:['<b>eval הוא טסט.</b> קלט, תשובת ייחוס, קריטריון - כמו כל בדיקה אחרת.','<b>LLM-as-judge.</b> חזק, אבל דורש כיול מול שיפוט אנושי.','<b>בנצ\u2019מרקים ציבוריים.</b> מה הם אומרים, ולמה הם לא המערכת שלכם.','<b>מעקב.</b> שומרים תוצאות לכל שינוי פרומפט או מודל, אחרת אין השוואה.'],
+  exercise:'בונים חמישה evals למערכת קיימת של הצוות ומריצים אותם לפני ואחרי שינוי אחד.',
+  credit:'מבוסס על: Evals (Hamel Husain).' },
+{ id:'m11', track:'core3', name:'אבטחת יישומי LLM (OWASP Top 10)', kind:'קריאה', hours:'~2 שעות', level:'mid', star:true,
+  about:'רשימת הסיכונים הרשמית ליישומי LLM - prompt injection בראש - ואיך מגנים על המערכות שאנחנו בונים.',
+  points:['<b>prompt injection.</b> למה "התעלם מההוראות" עובד, ואיך מצמצמים את שטח התקיפה.','<b>מידע רגיש.</b> מה שמכניסים לקונטקסט עלול לצאת החוצה - גם בטעות.','<b>הרשאות יתר.</b> סוכן עם יותר מדי כלים הוא פרט surface תקיפה.','<b>שרשרת אספקה.</b> מודלים, פלאגינים ודאטה של צד שלישי.'],
+  exercise:'עברו על סוכן אחד של הצוות עם הרשימה: אילו שלושה סיכונים הכי רלוונטיים לו, ומה המיגון הקיים?',
+  credit:'מבוסס על: OWASP Top 10 for LLM Applications.' },
+{ id:'m12', track:'core3', name:'פרויקט גמר: סוכן עם כלי פנימי', kind:'hands-on', hours:'~6 שעות', level:'mid', star:true,
+  about:'התוצר של מסלול הליבה: סוכן קטן אבל אמיתי, שמשתמש בכלי פנימי אחד של הצוות, עם eval בסיסי.',
+  points:['<b>משימה אחת מוגבלת.</b> עם קריטריון הצלחה שאפשר לבדוק, לא "סוכן כללי".','<b>כלי אחד, טוב.</b> schema ברור וטיפול בשגיאות, לפני כלי שני.','<b>עצירה ואישור.</b> מקסימום צעדים, לוג, ואישור אנושי בנקודות רגישות.','<b>eval.</b> חמישה מקרי בדיקה לפני ההצגה, לא אחרי.'],
+  exercise:'מציגים לצוות דמו של חמש דקות, ודף לקחים: איזה חלק ב-harness הכי השפיע על התוצאה.',
+  credit:'נכתב במקור עבור האתר.' },
+{ id:'m2', track:'advA', name:'תשתיות וסביבת פיתוח (RunAI KAI)', kind:'קריאה', hours:'~1 שעה', level:'mid',
+  about:'סיור בסביבת ה-GPU של הצוות: איך מקבלים משאבים, איך רואים מה רץ, ואיך לא תופסים מכונה של מישהו אחר.',
+  points:['<b>תור ומשאבים.</b> איך עובד תזמון GPU משותף ולמה "פנוי" זה לא בינארי.','<b>KAI-Scheduler.</b> פרויקט הקוד הפתוח של NVIDIA לתזמון, הרעיון והיכולות.','<b>מדדי ניצול.</b> utilization, זיכרון, זמן המתנה - ומה נחשב בזבוז.','<b>נימוסי תשתית.</b> מכבים, משחררים, מתעדים.'],
+  exercise:'מצאו בדשבורד את העבודות שלכם מהשבוע האחרון: כמה זמן GPU השתמשתם, וכמה מהזמן הזה היה ניצול אמיתי?',
+  credit:'מבוסס על: KAI-Scheduler (NVIDIA, קוד פתוח).' },
+{ id:'m13', track:'advA', name:'צווארי בקבוק ב-GPU ומדדי serving', kind:'קריאה', hours:'~2 שעות', level:'mid',
+  about:'למה ה-endpoint איטי: ההבדל בין latency, throughput, TTFT ו-TPOT, ומה באמת חוסם את המערכת.',
+  points:['<b>prefill מול decode.</b> שני שלבים עם אופי עומס שונה לגמרי.','<b>זיכרון הוא המלך.</b> ה-KV cache שולט בכמה בקשות אפשר לשרת במקביל.','<b>batching.</b> ה-trade-off הקבוע בין latency ל-throughput.','<b>מודדים לפני שמייעלים.</b> תמיד.'],
+  exercise:'קחו endpoint אחד של הצוות ורשמו את ארבעת המדדים שלו בעומס. איפה צוואר הבקבוק?',
+  credit:'מבוסס על: מדדי ה-serving של vLLM ותיעוד הספקים.' },
+{ id:'m14', track:'advA', name:'פורמטי נתונים וחשבון חומרה (FP32/FP16/BF16)', kind:'קריאה', hours:'~1.5 שעות', level:'mid',
+  about:'FP32, FP16, BF16 והדור החדש FP8/FP4: מה כל פורמט עולה בזיכרון ובמהירות, ולמה BF16 כבש את העולם.',
+  points:['<b>מבנה נקודה צפה.</b> סימן, מעריך, מנטיסה - ומה מקריבים בכל פורמט.','<b>BF16 מול FP16.</b> טווח מול דיוק, ולמה אימון אוהב טווח.','<b>הדור החדש.</b> FP8 ו-MX, ומה השתנה בחומרה האחרונה כדי לתמוך בהם.','<b>חשבון זיכרון.</b> פרמטרים, גרדיאנטים, אופטימייזר - כפול שתיים בבית ספר.'],
+  exercise:'חשבו ביד: כמה זיכרון צריך מודל של 7B פרמטרים ב-FP32, ב-BF16, וב-FP8? ובאימון מלא?',
+  credit:'מבוסס על מאמר הפורמטים מהמסמך המקורי; עודכן ל-FP8/FP4.' },
+{ id:'m15', track:'advA', name:'Internals: KV-cache, vLLM, LiteLLM, llm-d', kind:'קריאה', hours:'~3 שעות', level:'adv',
+  about:'מה קורה בתוך שרת אינפרנס מודרני: ניהול KV-cache, תזמון בקשות, והכלים שהצוות עובד איתם ביום־יום.',
+  points:['<b>KV-cache.</b> למה decode הוא memory-bound, ומה זה אומר על תמחור GPU.','<b>vLLM.</b> PagedAttention ו-continuous batching - הרעיון בשתי דקות.','<b>LiteLLM.</b> שכבת proxy אחידה מעל ספקי מודלים, ולמה זה מסדר את החיים.','<b>llm-d.</b> serving מבוזר על Kubernetes, ו-disaggregation של prefill ו-decode.'],
+  exercise:'שרטטו את מסלול הבקשה במערכת שלכם מהקליינט ועד ה-GPU, וסמנו איפה כל אחד מהכלים יושב.',
+  credit:'מבוסס על: תיעוד vLLM, LiteLLM ו-llm-d.' },
+{ id:'m16', track:'advA', name:'Quantization (GPTQ/GGUF/AWQ) ומקביליות', kind:'צפייה', hours:'~2 שעות', level:'adv', star:true,
+  about:'איך דוחסים מודל לרבע מהזיכרון בלי להרוס אותו, ואיך מחלקים מודל גדול על פני כמה GPUs.',
+  points:['<b>הרעיון.</b> פחות ביטים לכל משקל, עם calibration ששומר על החשובים.','<b>GPTQ, GGUF, AWQ.</b> מי מיועד ל-serving, מי ללפטופ, ומי לאימון.','<b>מקביליות.</b> tensor, pipeline, data - ומתי כל אחת נכונה.','<b>בדיקה אחרי דחיסה.</b> perplexity ו-evals, לא "נראה בסדר".'],
+  exercise:'קחו מודל פתוח קטן, דחסו אותו לשתי שיטות, והשוו זיכרון, מהירות ואיכות על אותם evals.',
+  credit:'מבוסס על: סרטוני ההעמקה מפלייליסט היסודות (זיו בכר).' },
+{ id:'m17', track:'advB', name:'למידה מפוקחת, לא מפוקחת וחיזוקים', kind:'קריאה', hours:'~4 שעות', level:'mid',
+  about:'שלוש פרדיגמות הלמידה, ואיפה LLMs נכנסים לתמונה: pre-training הוא לא־מפוקח, SFT מפוקח, RLHF חיזוקים.',
+  points:['<b>מונחי יסוד.</b> תוויות, פונקציית עלות, generalization.','<b>overfitting.</b> למה המודל "משנן", ומה regularization עושה בינתיים.','<b>למידת חיזוקים.</b> סוכן, תגמול, exploration - הרעיון בלי נוסחאות.','<b>המיפוי.</b> מה כל פרדיגמה תורמת למודל השפה שאתם מכירים.'],
+  exercise:'סווגו חמש דוגמאות מהעבודה שלכם לאחת משלוש הפרדיגמות. איזו מהן הכי פחות אינטואיטיבית?',
+  credit:'מבוסס על: תוכן ה-ML מהמסמך המקורי.' },
+{ id:'m18', track:'advB', name:'אימון LLM: pre-training, fine-tuning, RLHF, LoRA', kind:'קריאה', hours:'~4 שעות', level:'adv',
+  about:'צינור האימון המלא של מודל שפה, והטריקים שהופכים אותו לזול מספיק בשביל צוות קטן.',
+  points:['<b>pre-training.</b> corpus, compute, scaling laws בקצרה.','<b>alignment.</b> SFT, RLHF ו-DPO - מה מנסים לגרום למודל לעשות.','<b>LoRA.</b> מאמנים מתאמים קטנים במקום את כל המודל, ומקבלים 90% מהתוצאה.','<b>מתי בכלל.</b> fine-tune רק כש-RAG ופרומפטים לא מספיקים - ויש דאטה.'],
+  exercise:'כתבו במשפט: איזו בעיה אמיתית בצוות הייתה מצדיקה fine-tuning, ואיזה דאטה היה דורש.',
+  credit:'מבוסס על: תוכן האימון מהמסמך המקורי.' },
+{ id:'m19', track:'advB', name:'פרויקט העמקה: בניית mini-GPT מאפס', kind:'hands-on', hours:'~8 שעות', level:'adv', star:true,
+  about:'הפרויקט של מסלול ה-ML: מממשים transformer קטן ומאמנים אותו, כדי להבין כל רכיב בפנים באמת.',
+  points:['<b>ארכיטקטורה.</b> embeddings, attention heads, FFN, layernorm - הכל בקוד שלכם.','<b>אימון.</b> optimizer, learning rate schedule, gradient clipping.','<b>אבחון.</b> קריאת loss curves ומה לעשות כשהוא לא יורד.','<b>מה זה מלמד.</b> אותם רכיבים, בדיוק, רצים במודלים הגדולים.'],
+  exercise:'מאמנים את המודל על טקסט פנימי קטן ומציגים לצוות: מה למדתם שלא ידעתם קודם.',
+  credit:'בהשראת: Neural Networks: Zero to Hero (Karpathy) · CS336 (Stanford) · LLMs from scratch (Raschka).' },
+];
+
+let done = {};
+try { done = JSON.parse(localStorage.getItem('deus-done') || '{}'); } catch(e) { done = {}; }
+let filters = { level:'all', track:'all' };
+
+function saveDone(){ localStorage.setItem('deus-done', JSON.stringify(done)); }
+function coreMods(){ return MODULES.filter(m => m.track.startsWith('core')); }
+function go(id, anchor){
+  location.hash = id ? '#/m/' + id : '#/';
+  render();
+  if (anchor) setTimeout(() => { const el = document.getElementById(anchor); if (el) el.scrollIntoView({behavior:'smooth'}); }, 50);
+  else window.scrollTo(0,0);
+}
+function esc(s){ return s; }
+
+function homeView(){
+  const coreCount = coreMods().length;
+  const doneCount = coreMods().filter(m => done[m.id]).length;
+  const pct = Math.round(doneCount/coreCount*100);
+  const visible = MODULES.filter(m =>
+    (filters.level==='all' || m.level===filters.level) &&
+    (filters.track==='all' || (filters.track==='core' ? m.track.startsWith('core') : m.track.startsWith('adv'))));
+  let stages = '';
+  for (const t of TRACKS){
+    const mods = visible.filter(m => m.track===t.id);
+    if (!mods.length) continue;
+    stages += `<section class="stage${t.adv?' adv':''}">
+      <header class="shead"><h3><span class="n">${t.n}</span>${t.title}</h3><p>${t.note}</p></header>
+      <div class="slist">` +
+      mods.map(m => `<div class="mod" onclick="go('${m.id}')">
+        <div class="mod-main">
+          <div class="mod-name">${m.name}${m.star?'<span class="star" title="תוכן מוצע חדש">*</span>':''}</div>
+          <div class="mod-meta">${m.kind} · ${m.hours}</div>
+        </div>
+        <span class="mod-lv"><i class="${LEVEL[m.level].dot}"></i>${LEVEL[m.level].label}${done[m.id]?'<span class="done-mark">✓</span>':''}</span>
+      </div>`).join('') + `</div></section>`;
+  }
+  return `
+  <header class="hero">
+    <div class="kicker">אתר החפיפה של צוות ה-AI</div>
+    <h1>מסלול אחד מסודר, מהמודל הראשון עד סוכן שעובד.</h1>
+    <p>כל מודול הוא שיעור קצר בעברית עם תרגיל. מתקדמים בסדר, מסמנים מה שסיימתם, ויודעים בדיוק מה נשאר.</p>
+    <div class="cta">
+      <button class="primary" onclick="go('','stages')">להתחיל את המסלול</button>
+      <a class="secondary" onclick="go('','how')">איך המסלול בנוי</a>
+    </div>
+    <div class="heroline">${coreCount} מודולי ליבה · כ-38 שעות · 3 שלבים ושתי העמקות לפי תפקיד</div>
+  </header>
+  <div class="progress"><div class="in">
+    <span class="lbl">ההתקדמות שלי בליבה</span>
+    <div class="bar"><div class="fill" style="width:${Math.max(pct,1)}%"></div></div>
+    <span class="num">${doneCount} מתוך ${coreCount} · נשמר בדפדפן</span>
+  </div></div>
+  <section class="how" id="how">
+    <h2>איך זה עובד</h2>
+    <ul>
+      <li>שלושה שלבי ליבה שכולם עוברים, ואז העמקה לפי התפקיד שלכם בצוות.</li>
+      <li>כל מודול נפתח בשיעור קצר שנכתב במיוחד, ונגמר בתרגיל מעשי.</li>
+      <li>התקדמות נשמרת בדפדפן שלכם בלבד. אין חשבון, אין מעקב.</li>
+    </ul>
+  </section>
+  <div class="filters" id="stages">
+    <div class="fgroup"><span class="flabel">רמה</span><div class="chips">
+      ${['all','basic','mid','adv'].map(v=>`<button class="chip${filters.level===v?' on':''}" onclick="setF('level','${v}')">${{all:'הכל',basic:'בסיסי',mid:'בינוני',adv:'מתקדם'}[v]}</button>`).join('')}
+    </div></div>
+    <div class="fgroup"><span class="flabel">מסלול</span><div class="chips">
+      ${['all','core','adv'].map(v=>`<button class="chip${filters.track===v?' on':''}" onclick="setF('track','${v}')">${{all:'הכל',core:'ליבה',adv:'העמקה'}[v]}</button>`).join('')}
+    </div></div>
+  </div>
+  ${stages}
+  <footer class="footer">
+    Deus Training · סימון * מציין תוכן מוצע חדש שטרם אושר · הקוד פתוח ב־<a href="https://github.com/lidorshimoni/deus-training">GitHub</a>
+  </footer>`;
+}
+
+function moduleView(id){
+  const m = MODULES.find(x => x.id===id);
+  if (!m) return `<div class="page"><a class="back" onclick="go('')">→ חזרה למסלול</a><p class="pmeta" style="margin-top:30px">המודול לא נמצא.</p></div>`;
+  const t = TRACKS.find(x => x.id===m.track);
+  const isDone = !!done[m.id];
+  return `<div class="page">
+    <a class="back" onclick="go('')">→ חזרה למסלול</a>
+    <div class="eyebrow">${t.n} · ${t.title}</div>
+    <h2 class="ptitle">${m.name}</h2>
+    <div class="pmeta">${LEVEL[m.level].label} · ${m.kind} · כ${m.hours}</div>
+    <div class="sec"><h4>מה לומדים כאן</h4><p class="text">${m.about}</p></div>
+    ${m.lesson ? `<div class="sec"><h4>השיעור</h4><div class="lesson">${m.lesson.map(p=>`<p>${p}</p>`).join('')}</div></div>` : ''}
+    <div class="sec"><h4>הנקודות העיקריות</h4><ul class="points">${m.points.map(p=>`<li>${p}</li>`).join('')}</ul></div>
+    <div class="sec"><h4>תרגיל</h4><div class="quiz"><div class="q-label">לתרגל</div>${m.exercise}</div></div>
+    <div class="credit">${m.credit}</div>
+    <button class="done-btn${isDone?' is-done':''}" onclick="toggleDone('${m.id}')">${isDone?'סומן כהושלם':'סיימתי את המודול'}</button>
+    <div class="done-note">הסימון נשמר בדפדפן שלכם בלבד</div>
+  </div>`;
+}
+
+function setF(k,v){ filters[k]=v; render(); }
+function toggleDone(id){ done[id]=!done[id]; if(!done[id]) delete done[id]; saveDone(); render(); }
+function render(){
+  const h = location.hash;
+  const match = h.match(/^#\/m\/(\w+)/);
+  document.getElementById('app').innerHTML = match ? moduleView(match[1]) : homeView();
+}
+window.addEventListener('hashchange', render);
+render();
+</script>
+</body>
+</html>
