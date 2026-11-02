@@ -183,6 +183,20 @@ html[data-theme="pwn"] .heroart img,html[data-theme="pwn"] .semblem{filter:hue-r
   .semblem{width:32px;height:32px}
 }
 </style>
+<style id="hebrew-mono-fix">
+:root{--mono:"JetBrains Mono","IBM Plex Mono","Noto Sans Hebrew",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace !important}
+.eyebrow,.q-label,.done-btn{letter-spacing:0 !important}
+
+/* RTL alignment fix: Hebrew content right-aligned */
+.eyebrow{direction:rtl !important;text-align:right !important}
+.q-label{direction:rtl !important;text-align:right !important;letter-spacing:0 !important}
+.pmeta{direction:rtl !important;text-align:right !important}
+.card .meta{direction:rtl !important}
+.sdesc{direction:rtl;text-align:right}
+.text,.lesson p{direction:rtl;text-align:right}
+.quiz{direction:rtl;text-align:right}
+.credit{direction:rtl;text-align:right}
+</style>
 </head>
 <body>
 <div id="boot"><div class="term" id="bootterm"></div></div>
