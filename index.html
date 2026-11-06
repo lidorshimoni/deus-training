@@ -7,9 +7,19 @@
 <meta name="description" content="מסלול חפיפה מסודר לצוות ה-AI: שלבי ליבה, מסלולי העמקה, שיעורים ותרגילים בתוך האתר.">
 <link rel="icon" href="deus-logo.jpg">
 <style>
+/* Self-hosted Noto Sans Hebrew. See assets/fonts/OFL-NotoSansHebrew.txt. */
+@font-face{
+  font-family:"Deus Hebrew";
+  src:url("assets/fonts/NotoSansHebrew-variable.ttf") format("truetype");
+  font-style:normal;
+  font-weight:100 900;
+  font-stretch:62.5% 100%;
+  font-display:swap;
+  unicode-range:U+0590-05FF,U+FB1D-FB4F;
+}
 :root{
   --mono:"JetBrains Mono","IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Hebrew","Noto Sans",Arial,sans-serif;
+  --sans:"Deus Hebrew",-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans Hebrew","Noto Sans",Arial,sans-serif;
 }
 html[data-theme="chrome"]{
   --bg:#04070a; --panel:#0a1216; --panel2:#0d161b; --ink:#d4e4ea; --dim:#5f7a84; --faint:#33505c;
@@ -184,7 +194,7 @@ html[data-theme="pwn"] .heroart img,html[data-theme="pwn"] .semblem{filter:hue-r
 }
 </style>
 <style id="hebrew-mono-fix">
-:root{--mono:"JetBrains Mono","IBM Plex Mono","Noto Sans Hebrew",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace !important}
+:root{--mono:"Deus Hebrew","JetBrains Mono","IBM Plex Mono","Noto Sans Hebrew",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace !important}
 .eyebrow,.q-label,.done-btn{letter-spacing:0 !important}
 
 /* RTL alignment fix: Hebrew content right-aligned */
